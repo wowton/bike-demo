@@ -1,0 +1,18 @@
+<div class="center-block" *ngIf="bike">
+	<span class="bike-password" *ngIf="!isEdit">{{bike.pwd}}</span>
+	<input class="bike-password" [(ngModel)]="bike.pwd" *ngIf="isEdit">
+	<span class="bike-number">{{bike.num}}</span>
+	<span class="bike-location">{{bike.last_lacation}}</span>
+	<span class="bike-time">{{bike.last_time}}</span>
+
+  <button class="btn btn-primary" type="button" *ngIf="bike.comment" data-toggle="collapse" data-target="#collapseComment" aria-expanded="false" aria-controls="collapseExample">
+    前辈有话说
+  </button>
+	<div class="collapse" id="collapseComment">
+	  <div class="card card-block" *ngFor="let c of bike.comment">
+			{{c.content}}
+			<span class="comment-phone">{{c.phone}}</span>
+			<span class="comment-author">by {{c.author}} | {{c.time}}</span>
+		</div>
+	</div>
+</div>
